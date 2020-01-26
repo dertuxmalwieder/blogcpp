@@ -6,14 +6,10 @@ A static blog generator, written in C++17.
 First things first: How can I get it?
 -------------------------------------
 
-1. You can use `SourceTree <http://sourcetreeapp.com/>`__, just add this
-   repository's URL, clone it and you're done.
-2. You can use `SmartHg <http://www.syntevo.com/smartgit/>`__, just add
-   this repository's URL, clone it and you're done.
-3. You can use `TortoiseHg <http://tortoisehg.bitbucket.org/>`__, just
-   add this repository's URL, clone it and you're done.
-4. You can use the command-line Mercurial client:
-   ``hg clone https://bitbucket.org/tux_/blogcpp``.
+1. You can use the [Fossil](https://www.fossil-scm.org) client:
+   ``fossil clone https://code.rosaelefanten.org/blogcpp``.
+2. You can use a Git client of your choice to download from the GitHub mirror:
+   ``git clone https://github.com/dertuxmalwieder/blogcpp``.
 
 Why?
 ----
