@@ -1897,7 +1897,7 @@ int main(int argc, char* argv[]) {
 
     try {
         options.add_options()
-        ("h,help", "Prints this help")
+        ("h,help", "Prints this help.")
         ("v,version", "Prints version information.")
         ("q,quiet", "Quietly generates your site.")
         ("new-article", "Creates a new article with your $EDITOR.")
