@@ -6,7 +6,7 @@ A static blog generator, written in C++17.
 First things first: How can I get it?
 -------------------------------------
 
-1. You can use the [Fossil](https://www.fossil-scm.org) client:
+1. You can use the `Fossil <https://www.fossil-scm.org>`__ client:
    ``fossil clone https://code.rosaelefanten.org/blogcpp``.
 2. You can use a Git client of your choice to download from the GitHub mirror:
    ``git clone https://github.com/dertuxmalwieder/blogcpp``.
