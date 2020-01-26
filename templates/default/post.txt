@@ -1,0 +1,43 @@
+{% include "header.txt" %}
+{% include "sidebar.txt" %}
+
+<div id="single">
+  <div id="postnav">
+    <div id="prev">{{ default(prevlink, "") }}</div>
+    <div id="next">{{ default(nextlink, "") }}</div>
+  </div>
+
+  <h1 class="posttitle">{{ title }}</h1>
+
+  <div class="metadata">published on {{ date }} by <a href="{{ baseurl }}/author/{{ authorslug }}">{{ author }}</a></div>
+  <!-- <div class="metadata">changed on {{ changedate }}</div> -->
+
+  <div class="contents">
+    {{ text }}
+  </div>
+
+  <div class="post-bags">
+    <div class="cats"><b>{{ cats_title }}</b>
+      {% for cat in categories %}
+      <a href="{{ baseurl }}/categories/{{ cat/slug }}">{{ cat/name }}</a>
+      {% endfor %}</div>
+    <div class="tags"><b>{{ tags_title }}</b>
+      {% for tag in tags %}
+      <a href="{{ baseurl }}/tags/{{ tag/slug }}">{{ tag/name }}</a>
+      {% endfor %}</div>
+    {% if series %}
+    <div id="seriesnav" style="text-align:center">
+      <b>Articles from {{ series }}:</b><br />
+      <div style="font-style:italic">{{ title }}</div>
+      <div style="float:left">{{ seriesprevlink }}</div>
+      <div style="float:right">{{ seriesnextlink }}</div>
+      <br style="clear:both" />
+    </div>
+    {% endif %}
+    <div id="permalink">Permanent link to this post: <a href="{{ permalink }}">{{ permalink }}</a></div>
+  </div>
+
+  {{ comments }}
+</div>
+
+{% include "footer.txt" %}

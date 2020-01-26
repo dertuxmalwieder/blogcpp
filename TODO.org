@@ -1,0 +1,30 @@
+** TODO Update 3rd-party libs all the time (highlight.js, 3rdparty/)
+** TODO Fix pagination (!!!)
+** TODO Something like statocles's LinkCheck plug-in, maybe "blogcpp --check-all-links"?
+** TODO Auto-Update --> https://github.com/pmq20/libautoupdate
+** TODO Use more const. https://stackoverflow.com/questions/117293/use-of-const-for-function-parameters
+** TODO Extend OEmbed for the "photo" and "link" types (which don't have "html") --> https://oembed.com/
+** TODO Replace CMake by meson? (potentially easier dependency checks) http://mesonbuild.com/Tutorial.html
+** TODO Bugfix: Excerpts on the front page are empty for <code> articles - what to do?
+** TODO Markdown parser: support for underlined headlines
+** TODO Flexible highlighting
+*** TODO Configure highlight.js with useBR - drop the PRE tags: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
+*** TODO Prism.js as an alternative to Highlight.js?
+*** TODO hl.js constant in config (additionally to HIGHLIGHT_VER)
+** TODO Multi-language UI (static strings in templates -> variables)
+** TODO Collapsible sidebar elements with cookie storage for automatic expanding/collapsing: https://codepen.io/demonmhon/pen/EVgaWQ
+** TODO Ability to show the number of comments in the article list
+** TODO Filter functionality for simple replacements (e.g. smilies): filter.json?
+** TODO Fix 2-byte emojis
+** TODO Automatically tweet new articles (WITH_TWITTER)
+** TODO Automatic SCSS pre-processing?
+** TODO search integration
+*** TODO render an automatic index for tipue_search?
+*** TODO ... or https://wifiextender.github.io/#!post=search_form
+** TODO Pingbacks (a XMLRPC request to linked blogs with a Pingback header) http://www.hixie.ch/specs/pingback/pingback
+** TODO Gopher-compatible output? (blogcpp -G)
+** TODO WordPress import script
+** TODO Simple GUI in FASM (performance - not a part of the C++-based blog anyway)
+*** TODO "New Post"/"New Page" (two input masks with text fields)
+*** TODO Configuration page (blog.cfg)
+*** TODO Button "Generate site"

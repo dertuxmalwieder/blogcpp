@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ pagetitle }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="manifest" href="{{ baseurl }}/static/manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
+        {{ default(feedmeta, "") }}
+        {{ default(opengraphmeta, "") }}
+        <link rel="stylesheet" href="{{ baseurl }}/static/styles.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ hljsver }}/styles/default.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="{{ sitetitle }} RSS Feed" href="{{ rsslink }}" />
+        <link rel="start" href="{{ baseurl }}" />
+        {{ default(prevmeta, "") }}
+        {{ default(nextmeta, "") }}
+        {{ default(keywordsmeta, "") }}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ hljsver }}/highlight.min.js"></script>
+        <script src="{{ baseurl }}/static/blogcpp.js"></script>
+        {{ default(highlightdata, "") }}
+        {{ default(headscripts, "") }}
+    </head>
+    <body>
+        <script type="text/javascript">
+         hljs.configure({tabReplace: '    '});
+         hljs.initHighlightingOnLoad();
+        </script>
+        <div id="content">
+            <div id="header">
+                <h1><a href="{{ baseurl }}">{{ sitetitle }}</a></h1>
+                <h2>{{ subtitle }}</h2>
+            </div>
+
+            <div id="pagelist">
+                <ul>
+                    <li class="navlink{{ defaultclass }}"><a href="{{ baseurl }}">Blog</a></li>
+                    {% for nav in pagenav %}
+                    <li class="navlink{{ nav/cssclass }}"><a href="{{ nav/link }}" title="{{ nav/title }}">{{ nav/title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <a href="#sidebar" id="menuLink" class="burger-menu">
+                <!-- Mhhh, burgers. -->
+                <span></span>
+            </a>

@@ -1,0 +1,124 @@
+Version 10 [2019-xx-yy]:
+* Fixed a potential crash when the blog.cfg file could not be read [schorsch_76].
+* Improved compiler compatibility for FreeBSD [schorsch_76].
+* Improved standard compatibility: set the minimum CMake version to 3.13.
+* Improved code cleanliness: Gradually removing "using namespace std" calls.
+* Updated third-party libraries.
+* Fixed an issue where the pagination went horribly wrong.
+- Improved the general application reliability.
+
+
+Version 9 [2018-11-10]:
+* Replaced the aging NLTemplate engine by inja, fixing threading problems.
+* Updated third-party libraries.
+* Added a new theme: blerc.
+* Improved the default theme's font size (= readability).
+* Fixed the sorting of the yearly and monthly archives.
+* Fixed the listing of duplicate categories/tags in the sidebar.
+* Removed many unnecessary files from the default theme.
+* Improved stdlib compatibility with CMake [schorsch_76].
+* Fixed the responsivity of the page list for the default theme.
+
+
+Version 8 [2018-06-23]:
+* Fixed a recently introduced bug which accidentally removed the double-slash from generated URLs.
+* Added support for Commento comments.
+* Improved comments integration: supports separate <HEAD> scripts now.
+* Improved OEmbed support: Unicode domains were potentially failing.
+* Updated third-party libraries.
+* Improved the slug generation again.
+
+
+Version 7 [2018-02-17]:
+* Updated third-party libraries.
+* Improved cross-platform support: blogcpp detects <filesystem> somewhat smarter now.
+* Added support for article series.
+* Added a new configuration variable: series.
+* Improved code structure: Created a bunch of new classes and moved stuff there.
+* Improved processing speed by reducing the number of MarkdownParser and EmojiParser calls.
+* Added support for XML OEmbeds.
+* Tweaked the default theme.
+* Added support for varying page positions.
+* Fixed missing respect for the global emoji On/Off setting.
+* Fixed wrong paths in the page navigation bar.
+* Fixed OpenGraph image validation.
+* Fixed a possible crash with the cleanup of old output files.
+
+
+Version 6 [2017-12-23]:
+* Fixed an error which disabled all emojis in the article/page bodies.
+* Added new configuration variables: articlepath, pagepath, plugins, plugindir.
+* Fixed compiler warnings in NLTemplate.
+* Added Duktape as a plug-in engine.
+* Added new template variables: headscripts, footscripts.
+* Improved output of --new-page and --new-article, especially on Windows.
+* Updated third-party libraries.
+* Added support for WordPress's <!--more--> tag (even when misspelt as <!-- more -->).
+
+
+Version 5 [2017-08-26]:
+* Removed the Umbrella.js dependency from the default theme.
+* Added a new JavaScript file for placing functions in the default theme.
+* Fixed sorting of categories and tags in the sidebar.
+* Fixed default Highlight.js integration for blogs which use both http and https.
+* Updated third-party libraries.
+* Improved the default theme.
+* Fixed the theme variables so that less cases of mixed casing happen.
+* Fixed compilation with Clang (no more MSVC required).
+* Added threading support: Builds your site as fast as never before.
+* Removed the "protocol" template variable.
+* Improved the debug log functionality.
+* Replaced the ConfigFile parser by a better (more standard-compliant) one.
+* Improved support for building on non-Windows platforms.
+* Improved the file name generator: no more apostrophes in the URL.
+* Fixed an issue where italic/bold text failed to be parsed correctly.
+* Fixed the xdg-open call on non-Windows systems when trying to edit a file.
+* Added support for Markdown URLs written at the end of an article.
+* Reworked the default Windows build script.
+* Removed debug logging from the official Windows builds.
+
+
+Version 4 [2017-03-23]:
+* Updated third-party libraries.
+* Updated the bugtracker URL.
+* Improved the sidebar layout.
+* Added support for configurable permalinks.
+* Improved support for building on Linux.
+* Fixed Markdown parsing of code blocks.
+* Added code highlighting to the default theme.
+* Fixed creation of new contents for different configurations.
+* Fixed multiple issues which occurred if you used BlogC++ in more than one year.
+* Fixed a wrong debug log message.
+* Improved slug generation with special characters.
+
+
+Version 3 [2016-10-01]:
+* Slightly more verbose output in standard mode.
+* Emojis are also applied to the sidebar archives now.
+* Added CMake files (thanks, uwe!).
+* Added new configuration variables: comments, commentdata, opengraphimg.
+* Added support for external commenting systems: Disqus, isso, Hashover, Google, Discourse.
+* Fixed hyphen weirdness concerning the output folder names.
+* Updated third-party libraries.
+* Added OpenGraph support to the default theme.
+* Made the default theme somewhat more responsive.
+* Fixed an issue where the file name creator added too many spaces.
+
+
+Version 2 [2016-07-13]:
+* Changed the bugtracker link. (I don't really use Bitbucket for that.)
+* Fixed wrong tag archive links in the sidebar.
+* Fixed an issue where bold and/or italic formatting didn't work well inside a list.
+* Fixed an issue where the Markdown parser didn't close the last tag block.
+* Support for RSS feed generation (global, per author, per tag, per category) was added.
+* Support for change dates.
+* Updated third-party libraries.
+* Added the --new-page and --new-article parameters to automatically create new content stubs.
+* Code cleanup: Introducing the helpers.h file for random helper methods.
+* Added Emoji support.
+* Added new configuration variables: fullfeed, rssdir, author, emojis.
+* Improved generation of slugs.
+
+
+Version 1 [2016-05-22]:
+* Initial release. Enjoy.

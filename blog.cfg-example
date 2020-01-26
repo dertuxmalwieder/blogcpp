@@ -1,0 +1,192 @@
+# This is an example configuration file for blogcpp.
+# Also, this is a panda bear. Enjoy.
+
+#                               _,add8ba,
+#                             ,d888888888b,
+#                            d8888888888888b                        _,ad8ba,_
+#                           d888888888888888)                     ,d888888888b,
+#                           I8888888888888888 _________          ,8888888888888b
+#                 __________`Y88888888888888P"""""""""""baaa,__ ,888888888888888,
+#             ,adP"""""""""""9888888888P""^                 ^""Y8888888888888888I
+#          ,a8"^           ,d888P"888P^                           ^"Y8888888888P'
+#        ,a8^            ,d8888'                                     ^Y8888888P'
+#       a88'           ,d8888P'                                        I88P"^
+#     ,d88'           d88888P'                                          "b,
+#    ,d88'           d888888'                                            `b,
+#   ,d88'           d888888I                                              `b,
+#   d88I           ,8888888'            ___                                `b,
+#  ,888'           d8888888          ,d88888b,              ____            `b,
+#  d888           ,8888888I         d88888888b,           ,d8888b,           `b
+# ,8888           I8888888I        d8888888888I          ,88888888b           8,
+# I8888           88888888b       d88888888888'          8888888888b          8I
+# d8886           888888888       Y888888888P'           Y8888888888,        ,8b
+# 88888b          I88888888b      `Y8888888^             `Y888888888I        d88,
+# Y88888b         `888888888b,      `""""^                `Y8888888P'       d888I
+# `888888b         88888888888b,                           `Y8888P^        d88888
+#  Y888888b       ,8888888888888ba,_          _______        `""^        ,d888888
+#  I8888888b,    ,888888888888888888ba,_     d88888888b               ,ad8888888I
+#  `888888888b,  I8888888888888888888888b,    ^"Y888P"^      ____.,ad88888888888I
+#   88888888888b,`888888888888888888888888b,     ""      ad888888888888888888888'
+#   8888888888888698888888888888888888888888b_,ad88ba,_,d88888888888888888888888
+#   88888888888888888888888888888888888888888b,`"""^ d8888888888888888888888888I
+#   8888888888888888888888888888888888888888888baaad888888888888888888888888888'
+#   Y8888888888888888888888888888888888888888888888888888888888888888888888888P
+#   I888888888888888888888888888888888888888888888P^  ^Y8888888888888888888888'
+#   `Y88888888888888888P88888888888888888888888888'     ^88888888888888888888I
+#    `Y8888888888888888 `8888888888888888888888888       8888888888888888888P'
+#     `Y888888888888888  `888888888888888888888888,     ,888888888888888888P'
+#      `Y88888888888888b  `88888888888888888888888I     I888888888888888888'
+#        "Y8888888888888b  `8888888888888888888888I     I88888888888888888'
+#          "Y88888888888P   `888888888888888888888b     d8888888888888888'
+#             ^""""""""^     `Y88888888888888888888,    888888888888888P'
+#                              "8888888888888888888b,   Y888888888888P^
+#                               `Y888888888888888888b   `Y8888888P"^
+#                                 "Y8888888888888888P     `""""^
+#                                   `"YY88888888888P'
+
+
+# These settings are basically relevant for the output.
+# The subtitle is entirely optional - you can comment
+# it out or completely remove the line if you wish.
+sitetitle = Just Another Blog
+subtitle = powered by blogcpp
+
+# Your "index" URL. Please do NOT add a trailing slash.
+# The URL can be absolute (e.g. http://example.com/yoursite)
+# or relative to your domain path (e.g. /yoursite).
+siteurl = http://www.example.com/blog
+
+# When using the --new-page and --new-article options,
+# blogcpp will automatically fill in the "Author:" field
+# with the following name if enabled.
+# author = Your Name
+
+# By default, blogcpp parses single article links into
+# a path structure like "example.com/year/month/slug".
+# You can change this behavior below, replacing the
+# "year/month" part by a date format of your choice
+# (e.g. "%Y/%m/%d" to add a "day" part). blogcpp will read
+# this variable as:
+#   <siteurl>/<subdir>/<permalinks>/<slug>.
+# Please don't end this variable with a slash or hell
+# will break loose.
+#
+# A list of possible specifiers (the character after "%")
+# is available here:
+#   http://en.cppreference.com/w/cpp/chrono/c/strftime
+permalinks = %Y/%m
+
+# Pages and articles are usually prefixed by /pages and
+# /posts. The following two settings can be used to change
+# this behavior.
+# If you do not want to have separate subdirectories, please
+# just set the variables to a single slash ("/").
+articlepath = posts
+pagepath = pages
+
+# By default, blogcpp shows 25 items per page.
+# This value is also used for the number of items in your RSS
+# feed.
+# maxitems = 25
+
+# The maxhistory setting sets the number of latest posts
+# in e.g. your sidebar.
+maxhistory = 5
+
+# Your posts and pages must reside in {indir}/posts/ and
+# {indir}/pages.
+indir = site
+
+# blogcpp will use the {outdir} to generate your HTML files.
+outdir = outdir
+
+# You can en- or disable plug-in support per site: Just
+# switch this flag from "off" to "on".
+plugins = off
+
+# If compiled with WITH_PLUGINS, blogcpp will search your
+# plug-in files in the {plugindir} directory.
+# plugindir = plugins
+
+# Templates must reside in templates/{template}/
+template = default
+
+# You might want to set your blog's locale here.
+# This mainly affects the displayed date format.
+# locale = en_US.utf8
+
+# blogcpp supports article series, to be added per input file.
+# You can turn this feature off by setting this variable to
+# "off"; otherwise, blogcpp will respect the per-file settings.
+# series = on
+
+# blogcpp can automatically embed media from certain websites
+# (like YouTube) if it finds a media link on a separate line.
+# If blogcpp was compiled with WITH_OEMBED, this option tries
+# to find and process OEmbeds behind all of those links; if
+# WITH_OEMBED is not set, only basic replacements are made.
+# Set this to "off" if you want to disable this behavior.
+# embeds = on
+
+# By default, the index page will have a shortened preview
+# of your blog contents, e.g. a value of 2 will show only
+# the first two sentences. Set this to 0 to show the full
+# text on all pages. This can still be overridden by adding
+# the "<!--more-->" tag where you want to shorten the pre-
+# view.
+# excerptlength = 2
+
+# You can, of course, also modify the link text for the
+# "more..." link. By default, it's just an ellipsis (...).
+# excerpttext = &hellip;
+
+# blogcpp supports automatic Emoji conversion which is
+# enabled by default. If you don't want that, you can set
+# this feature "off" here.
+# emojis = on
+
+# If you want to enforce your RSS feed's readers to visit
+# your site more often, you can turn the "full feed" off
+# so blogcpp will use the "excerptlength" for article
+# previews. If this is set to "on", the RSS feed will
+# contain the full article text.
+fullfeed = on
+
+# By default, RSS feeds will be placed in the RSS/ subfolder.
+# You can modify this behavior with this setting.
+rssdir = RSS
+
+# blogcpp supports various commenting systems. If you want
+# to have comments on your blog, set "comments" from "off"
+# to one of these values:
+#  disqus, isso, hashover, google, discourse, commento.
+comments = off
+
+# If you want to use comments, the following parameter
+# determines parameters for certain commenting systems.
+#   For Disqus: Enter your Disqus shortname here.
+#   For Discourse: Enter your Discourse URL here.
+#   For isso: Enter your isso installation URL here.
+#   For Hashover: Enter your Hashover installation URL here.
+#   For Commento: Enter your Commento server URL here.
+# Note that these URLs must not end in a slash.
+commentdata = YOUR_COMMENT_SETTINGS
+
+# blogcpp supports OpenGraph meta data. However, it requires
+# to know the absolute URL to an image file of your choice
+# to be displayed. If you want to enable support for the
+# OpenGraph technology on all pages, please set the URL
+# of your desired image file below.
+# Note that single posts/pages can have separate OpenGraph
+# image URLs inside their meta data.
+# opengraphimg = http://www.example.com/opengraph.png
+
+# URLs for your sidebar can be specified as follows.
+# (blogcpp supports optional hover titles, too.)
+# Note that currently max. 99 URLs are supported, but
+# I guess you can live with that. :-)
+link1_url = https://www.blogcpp.org
+link1_text = blogcpp.org
+link1_title = Just another blog software.
+link2_url = https://bitbucket.org/tux_/blogcpp
+link2_text = blogcpp on Bitbucket

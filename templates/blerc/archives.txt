@@ -1,0 +1,10 @@
+{% include "header.txt" %}
+{% include "sidebar.txt" %}
+
+<h1>Archive for {{ what }}</h1>
+
+<ul id="archivelist">{% for entry in entries %}
+  <li><a href="{{ entry/URL }}">{{ entry/item }}</a> <span class="archivemeta">({{ entry/metadata }})</span></li>
+{% endfor %}</ul>
+
+{% include "footer.txt" %}

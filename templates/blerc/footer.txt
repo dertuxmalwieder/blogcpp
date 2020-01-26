@@ -1,0 +1,5 @@
+    </div>
+    <div id="footer">{{ blogcpp }}</div>
+    {{ default(footscripts, "") }}
+  </body>
+</html>

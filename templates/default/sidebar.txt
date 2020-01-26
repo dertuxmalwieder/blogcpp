@@ -1,0 +1,53 @@
+<div id="sidebar">
+  <b>Latest posts:</b>
+  <ul class="latestposts">
+    {% for post in latestposts %}
+    <li><a href="{{ post/link }}" title="{{ post/title }}">{{ post/title }}</a> ({{ post/date }})</li>
+    {% endfor %}
+  </ul>
+
+  <b>Archives:</b>
+  <ul class="archives">
+    {% for archive in archives %}
+    <li><a href="{{ baseurl }}/archives/{{ archive/year }}" title="Archives for {{ archive/year }}">{{ archive/year }}</a>
+      <ul class="months">
+        {% for month in archive/months %}
+        <li><a href="{{ baseurl }}/archives/{{ month/month }}" title="Archives for {{ month/month }}">{{ month/month }}</a>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <b>Categories:</b>
+  <ul class="catlist">
+    {% for cat in allcats %}<li><a href="{{ baseurl }}/categories/{{ cat/slug }}" title="Articles for the category '{{ cat/catname }}'">{{ cat/catname }}</a></li>{% endfor %}
+  </ul>
+
+  <b>Tags:</b>
+  <ul class="taglist">
+    {% for tag in alltags %}<li><a href="{{ baseurl }}/tags/{{ tag/slug }}" title="Articles tagged {{ tag/tagname }}">{{ tag/tagname }}</a></li>{% endfor %}
+  </ul>
+
+  {% if series %}
+  <b>Series:</b>
+  <ul class="serieslist">
+    {% for series in allseries %}<li><a href="{{ baseurl }}/series/{{ series/slug }}" title="Articles in the {{ series/seriesname }} category">{{ series/seriesname }}</a></li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  <b>Blogroll:</b>
+  <ul class="blogroll">
+    {% for link in links %}
+    <li><a href="{{ link/URL }}" title="{{ link/title }}" target="_blank">{{ link/text }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <b>Meta:</b>
+  <ul class="meta">
+    <li><a href="{{ rsslink }}">RSS Feed</a></li>
+  </ul>
+
+  <a href="http://www.vanilla-js.com"><img src="{{ baseurl }}/static/vanillajs.png" alt="made with VanillaJS" title="made with VanillaJS" /></a><br />
+  <a href="http://www.cplusplus.com/"><img src="{{ baseurl }}/static/madeincpp.png" alt="written in C++" title="written in C++" /></a>
+</div>

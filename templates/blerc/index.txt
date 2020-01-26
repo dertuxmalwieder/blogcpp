@@ -1,0 +1,21 @@
+{% include "header.txt" %}
+{% include "sidebar.txt" %}
+
+<div id="postblock">
+  {% for post in posts %}
+  <div class="entry {{ post/altclass }}{{ post/stickyclass }}" id="post-{{ post/count }}">
+    <h1 class="posttitle"><a href="{{ post/URL }}">{{ post/title }}</a></h1>
+
+    <div class="metadata">published on {{ post/date }} by {{ post/author }}</div>
+    <!-- <div class="metadata">last changed on {{ post/changedate }}</div> -->
+
+    <div class="contents">
+      {{ post/text }}
+      {% if post/shortened %}<span class="readon"><a href="{{ post/URL }}">{{ post/morelink }}</a></span>{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div id="paginator">{{ pagination }}</div>
+{% include "footer.txt" %}

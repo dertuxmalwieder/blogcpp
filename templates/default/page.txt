@@ -1,0 +1,22 @@
+{% include "header.txt" %}
+{% include "sidebar.txt" %}
+
+<div id="single">
+  <h1 class="posttitle">{{ title }}</h1>
+
+  <!-- <div class="metadata">published on {{ date }} by <a href="{{ baseurl }}/author/{{ authorslug }}">{{ author }}</a></div> -->
+  <!-- <div class="metadata">changed on {{ changedate }}</div> -->
+
+  <div class="contents">
+    {{ text }}
+  </div>
+
+  <div class="post-bags">
+    <div class="tags"><b>{{ tags_title }}</b>
+      {% for tag in tags %}
+      <a href="{{ baseurl }}/tags/{{ tag/slug }}">{{ tag/name }}</a>
+      {% endfor %}</div>
+  </div>
+</div>
+
+{% include "footer.txt" %}
