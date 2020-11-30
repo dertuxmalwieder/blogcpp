@@ -44,7 +44,7 @@
 #include <cxxopts.hpp>
 #include <ConfigParser/ConfigParser.cpp>
 #include <nlohmann/json.hpp>
-#include <inja.hpp>
+#include <inja/inja.hpp>
 
 // ICU:
 #include <unicode/unistr.h>

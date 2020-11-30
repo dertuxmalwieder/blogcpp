@@ -20,7 +20,7 @@
 #  include "DebugClass.h"
 #endif
 
-#include "XML/tinyxml2.h"
+#include <tinyxml2.h>
 
 namespace fs = NAMESPACE_FILESYSTEM;
 

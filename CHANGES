@@ -1,11 +1,13 @@
-Version 10 [2019-xx-yy]:
+Version 10 [2021-xx-yy]:
 * Fixed a potential crash when the blog.cfg file could not be read [schorsch_76].
 * Improved compiler compatibility for FreeBSD [schorsch_76].
 * Improved standard compatibility: set the minimum CMake version to 3.13.
 * Improved code cleanliness: Gradually removing "using namespace std" calls.
 * Updated third-party libraries.
 * Fixed an issue where the pagination went horribly wrong.
-- Improved the general application reliability.
+* Improved the general application reliability.
+* Added Conan to the build workflow (external dependencies are managed there now).
+* Fixed build on macOS.
 
 
 Version 9 [2018-11-10]:

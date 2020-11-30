@@ -24,7 +24,7 @@
 #  define NOMINMAX // Tell that.
 #  include <windows.h>
 #  include <ShellApi.h>
-#elif defined(__linux__) || defined(__unix__)
+#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
 #  include <stdlib.h>
 #  include <unistd.h>
 #else

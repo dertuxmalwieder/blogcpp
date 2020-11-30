@@ -65,7 +65,7 @@ Features
 Used libraries
 --------------
 
-``blogcpp`` uses the following third-party libraries (in ``3rdparty/``):
+``blogcpp`` uses the following third-party libraries:
 
 -  `cxxopts <https://github.com/jarro2783/cxxopts>`__
 -  `inja <https://github.com/pantor/inja>`__
@@ -74,17 +74,14 @@ Used libraries
 -  `ConfigParser <https://github.com/underww/ConfigParser>`__
 -  `dukglue <https://github.com/Aloshi/dukglue/>`__ with
    `duktape <http://duktape.org/>`__
+-  `icu <http://icu-project.org/>`__
+-  `libcurl <http://curl.haxx.se>`__ if compiled with ``WITH_OEMBED``
 
 Some code was added from other people's suggestions:
 
--  The HTTPDownloader class is based on `this blog
+-  The HTTPDownloader class is taken from `this blog
    article <https://techoverflow.net/blog/2013/03/15/c-simple-http-download-using-libcurl-easy-api/>`__.
 
-Not included in this repository (because of their size), but still
-required external libraries:
-
--  `icu <http://icu-project.org/>`__
--  `libcurl <http://curl.haxx.se>`__ if compiled with ``WITH_OEMBED``
 
 FAQ
 ---
@@ -164,14 +161,14 @@ binary <http://blogcpp.org/pages/download>`__. There are also
 which have, sadly, not been updated in a while.
 It's not hard to compile ``blogcpp`` yourself though:
 
--  On Windows: You can refer to the ``build_windows.cmd`` file in this
-   repository for details. Visual Studio 2015 or newer as well as Clang
-   should work.
--  On Linux and Unix: Starting from version 3, ``CMake`` files are
-   provided, tested on GNU/Linux and FreeBSD systems. (On other systems
-   you might have to adjust the paths.) You'll need a C++17 compiler,
-   ``blogcpp`` makes heavy use of the new ``<filesystem>`` header and
-   other oddities.
+Starting from version 3, ``CMake`` files are provided, tested on GNU/Linux and FreeBSD systems. (On other systems you might have to adjust the paths.) You'll need a C++17 compiler, ``blogcpp`` makes heavy use of the new ``<filesystem>`` header and other oddities. You will need [Conan](https://conan.io) installed to fetch some dependencies.
+
+::
+
+   % mkdir build
+   % cd build
+   % cmake .. ; cmake --build .
+
 
 ``blogcpp`` has been proven to compile on:
 
@@ -179,31 +176,8 @@ It's not hard to compile ``blogcpp`` yourself though:
 -  Windows 10 with Clang 6.0.1.
 -  Debian GNU/Linux *sid* with ``g++`` 6.3.0.
 
-Also, the ICU libraries and headers as well as ``libcurl`` need to be
-in your include and library paths. (Visual Studio users can get the ICU
-libraries
-`here <http://www.npcglib.org/~stathis/blog/precompiled-icu/>`__.)
-
-Manual compilation instructions:
-
-1. Compile ``3rdparty/XML/tinyxml2.cpp``,
-   ``3rdparty/duktape/duktape/src/duktape.c``,
-   ``3rdparty/curl/HTTPDownloader.cpp``, ``EmojiParserClass.cpp``,
-   ``MediaEmbedderClass.cpp``, ``MarkdownParserClass.cpp``,
-   ``ContentsGeneratorClass.cpp``, ``ExcerptExtractorClass.cpp``,
-   ``CommentIntegrationClass.cpp``, ``DebugClass.cpp``,
-   ``PluginClass.cpp``, ``RSSGeneratorClass.cpp``, ``MarkdownWrapperClass.cpp``,
-   ``TemplateWrapperClass.cpp`` and ``blogcpp.cpp`` into one object file.
-2. Link to the ``libcurl_a``, ``sicuin``, ``sicuio``, ``sicuuc`` and
-   ``sicudt`` libraries. (Drop the leading "s" if you don't want to have
-   a static linking.)
-3. On Windows, additionally link to ``shell32.lib`` and ``user32.lib``.
-4. On POSIX systems, additionally link to ``pthread``.
-
 Optional preprocessor definitions while linking:
 
--  ``CURL_STATICLIB`` and ``U_STATIC_IMPLEMENTATION``: Required for
-   static linking of ICU and ``libcurl`` (highly recommended).
 -  ``WITH_DEBUGLOG``: Prints verbose debug output to ``/debuglog.txt``.
 -  ``WITH_PLUGINS``: Actually supports loading and evaluating plug-ins.
 -  ``WITH_OEMBED``: ``blogcpp`` supports the OEmbed standard. This will

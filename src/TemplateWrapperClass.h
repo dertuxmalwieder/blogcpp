@@ -10,7 +10,7 @@
 #include <sstream>
 
 #include <nlohmann/json.hpp>
-#include <inja.hpp>
+#include <inja/inja.hpp>
 #ifdef WITH_DEBUGLOG
 #  include "DebugClass.h"
 #endif

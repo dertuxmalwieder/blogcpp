@@ -10,11 +10,12 @@ OPTION(WITH_PLUGINS "Compile with plugin support" ON)
 IF (WITH_PLUGINS)
 	ADD_DEFINITIONS(-DWITH_PLUGINS)
 
-	SET(TP_SRCS ${TP_SRCS}
-		../3rdparty/duktape/duktape/src/duktape.c
-	)
-	INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/duktape/duktape/src)
+        find_package(duktape)
+	INCLUDE_DIRECTORIES(${duktape_INCLUDE_DIRS})
 	INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/duktape/dukglue/include)
+
+        LINK_DIRECTORIES(${duktape_LIB_DIRS})
+        SET(LIBS ${LIBS} ${duktape_LIBRARIES})
 ENDIF (WITH_PLUGINS)
 
 OPTION(WITH_OEMBED "Compile with oEmbed support" OFF)
@@ -28,7 +29,7 @@ if (WITH_OEMBED)
 	INCLUDE_DIRECTORIES(${CURL_INCLUDE_DIRS})
 
 	SET(TP_SRCS ${TP_SRCS}
-		../3rdparty/curl/HTTPDownloader.cpp
+		../3rdparty/HTTPDownloader.cpp
 	)
 	
 	SET(LIBS ${LIBS}
@@ -44,25 +45,28 @@ IF (${FREEBSD} OR ${DARWIN})
 ENDIF(${FREEBSD} OR ${DARWIN})
 
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty)
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/inja/single_include/inja)
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/json/single_include)
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/icu/include)
-
-IF(CMAKE_CL_64)
-	LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/icu/lib64)
-ELSE(CMAKE_CL_64)
-	LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/3rdparty/icu/lib)
-ENDIF(CMAKE_CL_64)
 
 ############################################################################
 # third-party sources
 ############################################################################
 
-SET(TP_SRCS
-    # included in src
-    ${TP_SRCS}
-    ../3rdparty/XML/tinyxml2.cpp
-)
+find_package(inja)
+find_package(nlohmann_json)
+find_package(ICU)
+find_package(tinyxml2)
+find_package(cxxopts)
+
+INCLUDE_DIRECTORIES(${pantor_inja_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${nlohmann_json_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${ICU_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${tinyxml2_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${cxxopts_INCLUDE_DIRS})
+
+LINK_DIRECTORIES(${ICU_LIB_DIRS})
+LINK_DIRECTORIES(${tinyxml2_LIB_DIRS})
+
+SET(LIBS ${LIBS} ${ICU_LIBRARIES})
+SET(LIBS ${LIBS} ${tinyxml2_LIBRARIES})
 
 ############################################################################
 # blogcpp sources
@@ -83,6 +87,8 @@ SET(BLOGCPP_SRCS
     blogcpp.cpp
 )
 
+ADD_EXECUTABLE(blogcpp ${BLOGCPP_SRCS})
+
 ############################################################################
 # Target specific libraries
 ############################################################################
@@ -94,19 +100,24 @@ ENDIF(UNIX)
 IF (FREEBSD OR DARWIN)
     SET(LIBS    ${LIBS}
         icui18n 
-        icuuc 
-
-        thr
+        icuuc
     )
+    IF (FREEBSD)
+       SET(LIBS ${LIBS}
+           thr
+       )
+    ELSE (FREEBSD)
+     SET(LIBS ${LIBS}
+           pthread
+       )
+    ENDIF (FREEBSD)
     IF (USE_CLANG_STDCPP_LIB)
         SET(LIBS    ${LIBS}
-            c++ 
-            c++experimental
+            c++
         )
     ELSE(USE_CLANG_STDCPP_LIB)
         SET(LIBS    ${LIBS}
             stdc++
-            stdc++fs
         )
     ENDIF (USE_CLANG_STDCPP_LIB)
 ENDIF (FREEBSD OR DARWIN)
