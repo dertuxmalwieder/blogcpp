@@ -799,8 +799,8 @@ void renderIndex(json extradata, stringstream& ss_ret) {
                 posts_per_page = vsi_posts_with_sticky.size() % cfgs.cfg_maxitems;
             }
 
-            // TODO: Bug??
-            vector<SingleItem> vec(&vsi_posts_with_sticky[offset - 1], &vsi_posts_with_sticky[offset + posts_per_page - 1]);
+            // The first <x> posts are 0 .. <x-1>, the next <x> posts are <x> .. <2x-1>:
+            vector<SingleItem> vec(&vsi_posts_with_sticky[offset], &vsi_posts_with_sticky[offset + posts_per_page - 1]);
             v_newest_x = vec;
         }
 
