@@ -160,8 +160,8 @@ compile `blogcpp` yourself though:
 Starting from version 3, `CMake` files are provided, tested on GNU/Linux
 and FreeBSD systems. (On other systems you might have to adjust the
 paths.) You\'ll need a C++17 compiler, `blogcpp` makes heavy use of the
-new `<filesystem>` header and other oddities. You will need
-\[Conan\](<https://conan.io>) installed to fetch some dependencies.
+`<filesystem>` header and other oddities. You will need
+[Conan](https://conan.io) installed to fetch some dependencies.
 
     % mkdir build
     % cd build
