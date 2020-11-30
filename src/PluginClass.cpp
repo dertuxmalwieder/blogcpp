@@ -131,8 +131,8 @@ std::string Plugins::processHeaderPlugins() {
         ss_debuglog << "Could not find the header plug-ins directory '";
         ss_debuglog << ss_plugindir.str() << "', skipping.";
         DebugLog::debuglog(ss_debuglog.str());
-        return "";
 #endif
+        return "";
     }
 
     std::vector<std::string> vs_plugins;
@@ -209,8 +209,8 @@ std::string Plugins::processFooterPlugins() {
         ss_debuglog << "Could not find the footer plug-ins directory '";
         ss_debuglog << ss_plugindir.str() << "', skipping.";
         DebugLog::debuglog(ss_debuglog.str());
-        return "";
 #endif
+        return "";
     }
 
     std::vector<std::string> vs_plugins;

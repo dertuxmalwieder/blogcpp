@@ -8,6 +8,7 @@ Version 10 [2021-xx-yy]:
 * Improved the general application reliability.
 * Added Conan to the build workflow (external dependencies are managed there now).
 * Fixed build on macOS.
+* Fixed an issue where plug-ins were required to exist.
 
 
 Version 9 [2018-11-10]:
