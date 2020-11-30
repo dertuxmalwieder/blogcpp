@@ -1,6 +1,4 @@
----
-title: blogcpp
----
+# blogcpp
 
 A static blog generator, written in C++17.
 
