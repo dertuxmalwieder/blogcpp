@@ -1,5 +1,5 @@
 [build_requires]
-icu/64.2
+icu/68.2
 nlohmann_json/3.9.1
 tinyxml2/8.0.0
 duktape/2.5.0
@@ -15,5 +15,4 @@ cmake_paths
 icu:shared=False
 tinyxml2:shared=False
 duktape:shared=False
-cxxopts:unicode=True
 libcurl:shared=False
