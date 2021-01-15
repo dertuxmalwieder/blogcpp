@@ -560,8 +560,6 @@ void createTaxonomy(json extradata) {
 
 void createTimedArchives(json extradata) {
     // Calls createTaxonomyHTML() for all yyyy/mm in vsi_posts.
-    stringstream ss_temp_month;
-    stringstream ss_temp_year;
 
     // Create the HTML files (by the end; all of them need to know each other):
     for (auto v : vec_years) {
@@ -1116,10 +1114,10 @@ void createPageOrPost(string inputfile, ConfigParser config, bool is_page) {
     // of <inputfile>.
     SingleItem ret, si_prev, si_next, si_prev_in_series, si_next_in_series;
     CommentIntegration ci(cfgs.cfg_commenttype, cfgs.cfg_commentdata);
-    stringstream inputfile_path, ss_output, ss_subdir, ss_link_creator, permalink_path, outputfile_path, outputfile;
+    stringstream inputfile_path, ss_subdir, ss_link_creator, permalink_path, outputfile_path, outputfile;
 
     // Meta tags (from the header):
-    string s_datetime, s_changed, s_author, s_cats, s_tags, s_title, s_slug, s_contents, s_markdown, s_emoji, s_comments, s_ogimage, s_series;
+    string s_datetime, s_changed, s_author, s_title, s_slug, s_contents, s_markdown, s_emoji, s_comments, s_ogimage, s_series;
 
     // Meta tags (generated):
     string s_title_emojified;
