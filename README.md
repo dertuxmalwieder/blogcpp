@@ -320,6 +320,8 @@ Currently supported are:
 -   [Commento](https://gitlab.com/commento/commento-ce)
     (`comments = commento`, you need to set your `commentdata` to your
     *Commento* server URI)
+-   [Hyvor Talk](https://talk.hyvor.com) (`comments = hyvortalk`, you
+    need to set your `commentdata` to your website ID)
 
 How can I write a `blogcpp` plug-in? Is it hard?
 ------------------------------------------------

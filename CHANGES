@@ -9,6 +9,7 @@ Version 10 [2021-xx-yy]:
 * Added Conan to the build workflow (external dependencies are managed there now).
 * Fixed build on macOS.
 * Fixed an issue where plug-ins were required to exist.
+* Added support for the Hyvor Talk commenting system.
 
 
 Version 9 [2018-11-10]:

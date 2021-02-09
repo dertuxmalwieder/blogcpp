@@ -42,6 +42,7 @@ std::string CommentIntegration::addComments() {
     //  * Google comments: No setup needed.
     //  * Discourse: commentdata is the URL to your Discourse installation.
     //  * Commento comments: commentdata is the URL to your Commento installation.
+    //  * Hyvor Talk comments: commentdata is the website ID.
 
     if (commenttype == "disqus") {
         // No commentdata? No comments.
@@ -146,6 +147,25 @@ std::string CommentIntegration::addComments() {
 
         ret << "<div class=\"commento\"></div>" << std::endl;
         ret << "<script defer src=\"" << commentdata << "/commento.min.js\" data-div=\"#commento\"></script>" << std::endl;
+    }
+    else if (commenttype == "hyvortalk") {
+        // No commentdata? No comments.
+        if (commentdata == "") {
+#ifdef WITH_DEBUGLOG
+            DebugLog::debuglog("Invalid Hyvor Talk settings: Please check your Hyvor Talk website ID in commentdata!");
+#endif
+            return ret.str();
+        }
+
+        ret << "<div id=\"hyvor-talk-view\"></div>" << std::endl;
+        ret << "<script type=\"text/javascript\">" << std::endl;
+        ret << "var HYVOR_TALK_WEBSITE = \"" << commentdata << "\";" << std::endl;
+        ret << "var HYVOR_TALK_CONFIG = {" << std::endl;
+        ret << "    url: false," << std::endl;
+        ret << "    id: false" << std::endl;
+        ret << "};" << std::endl;
+        ret << "</script>" << std::endl;
+        ret << "<script async type=\"text/javascript\" src=\"//talk.hyvor.com/web-api/embed\"></script>" << std::endl;
     }
 
 #ifdef WITH_DEBUGLOG
