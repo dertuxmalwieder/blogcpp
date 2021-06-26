@@ -198,6 +198,9 @@ variables. By default, `TPLNAME` is `default`, `INDIR` is `site` and
 `OUTDIR` is `outdir`. Please use the configuration file when building
 your site in order to change these values.
 
+**Note that the binary `blogcpp` file needs to be in the root directory
+to work!**
+
 The name is stupid!
 -------------------
 
