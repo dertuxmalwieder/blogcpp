@@ -3,8 +3,10 @@
 
 <h1>Archive for {{ what }}</h1>
 
+{% if has_entries %}
 <ul id="archivelist">{% for entry in entries %}
   <li><a href="{{ entry/URL }}">{{ entry/item }}</a> <span class="archivemeta">({{ entry/metadata }})</span></li>
 {% endfor %}</ul>
+{% endif %}
 
 {% include "footer.txt" %}

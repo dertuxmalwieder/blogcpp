@@ -592,6 +592,7 @@ json renderSidebarArchives() {
     json ret;
 
     // Categories:
+    ret["has_cats"] = !vs_cats.empty();
     sort(vs_cats.begin(), vs_cats.end(), vectorSort);
     vs_cats.erase(unique(vs_cats.begin(), vs_cats.end()), vs_cats.end());
 
@@ -601,6 +602,7 @@ json renderSidebarArchives() {
     }
 
     // Tags:
+    ret["has_tags"] = !vs_tags.empty();
     sort(vs_tags.begin(), vs_tags.end(), vectorSort);
     vs_tags.erase(unique(vs_tags.begin(), vs_tags.end()), vs_tags.end());
 
@@ -610,8 +612,8 @@ json renderSidebarArchives() {
     }
 
     // Series:
-    ret["series"] = cfgs.cfg_series && !vs_series.empty();
-    if (ret["series"]) {
+    ret["has_series"] = cfgs.cfg_series && !vs_series.empty();
+    if (ret["has_series"]) {
         sort(vs_series.begin(), vs_series.end(), vectorSort);
 
         for (auto it = vs_series.begin(); it != vs_series.end(); ++it, ++seriescount) {
@@ -627,6 +629,7 @@ json renderSidebarArchives() {
 #endif
 
     // Find all months inside every year and put them into a sub-block:
+    ret["has_archives"] = !vs_archive_years.empty();
     sort(vs_archive_years.begin(), vs_archive_years.end(), vectorSort);
     reverse(vs_archive_years.begin(), vs_archive_years.end());
 
@@ -661,6 +664,7 @@ json renderSidebarArchives() {
     DebugLog::debuglog(ss_debuglog.str());
 #endif
     // For archivation, we should (at least) sort the article vector.
+    ret["has_posts"] = !vsi_posts.empty();
     sort(vsi_posts.begin(), vsi_posts.end(), [](SingleItem & a, SingleItem & b) {
         // The older an article is, the further it should be at the end of the article list.
         return mktime(&a.time) > mktime(&b.time);
@@ -1044,6 +1048,7 @@ void createTaxonomyHTML(json extradata, Taxonomies taxonomytype, string taxonomy
 
     // Traverse through <items>, collect s_title, s_slug and dateToPrint(time),
     // put them into the JSON's "entries" block.
+    data["has_entries"] = !items.empty();
     for (const SingleItem& si : items) {
         stringstream ss_url;
 

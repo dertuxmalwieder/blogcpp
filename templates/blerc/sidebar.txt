@@ -8,6 +8,7 @@
     </ul>
   </div>
 
+  {% if has_archives %}
   <b>Blog/</b>
   <ul class="archives">
     {% for archive in archives %}
@@ -20,29 +21,36 @@
     </li>
     {% endfor %}
   </ul>
+  {% endif %}
 
+  {% if has_posts %}
   <b>Latest/</b>
   <ul class="latestposts">
     {% for post in latestposts %}
     <li><a href="{{ post/link }}" title="{{ post/title }}">{{ post/title }}</a> ({{ post/date }})</li>
     {% endfor %}
   </ul>
+  {% endif %}
 
+  {% if has_cats %}
   <b>Cats/</b>
   <ul class="catlist">
     {% for cat in allcats %}
     <li><a href="{{ baseurl }}/categories/{{ cat/slug }}" title="Articles for the category '{{ cat/catname }}'">{{ cat/catname }}</a></li>
     {% endfor %}
   </ul>
+  {% endif %}
 
+  {% if has_tags %}
   <b>Tags/</b>
   <ul class="taglist">
     {% for tag in alltags %}
     <li><a href="{{ baseurl }}/tags/{{ tag/slug }}" title="Articles tagged {{ tag/tagname }}">{{ tag/tagname }}</a></li>
     {% endfor %}
   </ul>
+  {% endif %}
 
-  {% if series %}
+  {% if has_series %}
   <b>Series/</b>
   <ul class="serieslist">
     {% for series in allseries %}

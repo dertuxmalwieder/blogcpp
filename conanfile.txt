@@ -1,11 +1,11 @@
 [build_requires]
-icu/68.2
+icu/69.1
 nlohmann_json/3.9.1
 tinyxml2/8.0.0
 duktape/2.5.0
-inja/3.1.0
+inja/3.2.0
 cxxopts/2.2.1
-libcurl/7.73.0
+libcurl/7.77.0
 
 [generators]
 cmake_find_package

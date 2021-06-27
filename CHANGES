@@ -10,6 +10,7 @@ Version 10 [2021-xx-yy]:
 * Fixed build on macOS.
 * Fixed an issue where plug-ins were required to exist.
 * Added support for the Hyvor Talk commenting system.
+* Both the blerc and the default theme have new variables for the existing sidebar blocks.
 
 
 Version 9 [2018-11-10]:
