@@ -1,3 +1,8 @@
+# !!! DISCONTINUED !!!
+
+For very various reasons, `blogcpp` won't be continued - by me. If anyone of you is interested in continuing this promising project, please open a GitHub issue or contact me [on Twitter](https://twitter.com/tux0r). :-)
+
+
 # blogcpp
 
 A static blog generator, written in C++17.
@@ -59,8 +64,6 @@ Features
 -   Article series: If you have articles which continue other articles,
     you can just add them to the same series and `blogcpp` will make
     them refer to each other.
--   much more is planned - see [the
-    roadmap](https://blogcpp.org/pages/roadmap) for a clue.
 
 Used libraries
 ==============
@@ -149,13 +152,6 @@ You mean, except the Title/Tags/Date part? Well:
 
 OK, but how can I compile `blogcpp` first?
 ------------------------------------------
-
-If you\'re on Windows, you can just [get a static
-binary](http://blogcpp.org/pages/download). There are also [precompiled
-builds for Debian
-GNU/Linux](https://blog.mdosch.de/2017/08/26/blogc++-in-debian-benutzen/)
-which have, sadly, not been updated in a while. It\'s not hard to
-compile `blogcpp` yourself though:
 
 Starting from version 3, `CMake` files are provided, tested on GNU/Linux
 and FreeBSD systems. (On other systems you might have to adjust the
